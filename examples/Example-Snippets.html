@@ -1,0 +1,794 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Example Snippets - REFramework</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Troubleshooting</li><li class="chapter-item expanded "><a href="../troubleshooting/VR-Troubleshooting.html"><strong aria-hidden="true">1.</strong> VR Troubleshooting</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="../examples/Example-Scripts.html"><strong aria-hidden="true">2.</strong> Example Scripts</a></li><li class="chapter-item expanded "><a href="../examples/Example-Snippets.html" class="active"><strong aria-hidden="true">3.</strong> Example Snippets</a></li><li class="chapter-item expanded affix "><li class="part-title">Tools</li><li class="chapter-item expanded "><a href="../object_explorer/object_explorer.html"><strong aria-hidden="true">4.</strong> Object Explorer</a></li><li class="chapter-item expanded "><a href="../chain_viewer/chain_viewer.html"><strong aria-hidden="true">5.</strong> Chain Viewer</a></li><li class="chapter-item expanded "><a href="../bhvt_editor/bhvt_editor.html"><strong aria-hidden="true">6.</strong> Behavior Tree/FSM Editor</a></li><li class="chapter-item expanded affix "><li class="part-title">Lua Scripting Reference</li><li class="chapter-item expanded "><a href="../api/general/index.html"><strong aria-hidden="true">7.</strong> General</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/general/Notes-on-Return-Types.html"><strong aria-hidden="true">7.1.</strong> Notes on Return Types</a></li><li class="chapter-item expanded "><a href="../api/general/Notes-on-Method-Arguments.html"><strong aria-hidden="true">7.2.</strong> Notes on Method Arguments</a></li><li class="chapter-item expanded "><a href="../api/general/best-practices.html"><strong aria-hidden="true">7.3.</strong> Best Practices</a></li></ol></li><li class="chapter-item expanded "><a href="../api/index.html"><strong aria-hidden="true">8.</strong> APIs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/draw.html"><strong aria-hidden="true">8.1.</strong> draw</a></li><li class="chapter-item expanded "><a href="../api/fs.html"><strong aria-hidden="true">8.2.</strong> fs</a></li><li class="chapter-item expanded "><a href="../api/imgui.html"><strong aria-hidden="true">8.3.</strong> imgui</a></li><li class="chapter-item expanded "><a href="../api/imnodes.html"><strong aria-hidden="true">8.4.</strong> imnodes</a></li><li class="chapter-item expanded "><a href="../api/imguizmo.html"><strong aria-hidden="true">8.5.</strong> imguizmo</a></li><li class="chapter-item expanded "><a href="../api/json.html"><strong aria-hidden="true">8.6.</strong> json</a></li><li class="chapter-item expanded "><a href="../api/log.html"><strong aria-hidden="true">8.7.</strong> log</a></li><li class="chapter-item expanded "><a href="../api/re.html"><strong aria-hidden="true">8.8.</strong> re (Callbacks)</a></li><li class="chapter-item expanded "><a href="../api/reframework.html"><strong aria-hidden="true">8.9.</strong> reframework</a></li><li class="chapter-item expanded "><a href="../api/sdk.html"><strong aria-hidden="true">8.10.</strong> sdk</a></li><li class="chapter-item expanded "><a href="../api/vrmod.html"><strong aria-hidden="true">8.11.</strong> vrmod</a></li><li class="chapter-item expanded "><a href="../api/object_explorer.html"><strong aria-hidden="true">8.12.</strong> object_explorer</a></li><li class="chapter-item expanded "><a href="../api/thread.html"><strong aria-hidden="true">8.13.</strong> thread</a></li></ol></li><li class="chapter-item expanded "><a href="../api/types/index.html"><strong aria-hidden="true">9.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/types/VectorXf.html"><strong aria-hidden="true">9.1.</strong> VectorXf</a></li><li class="chapter-item expanded "><a href="../api/types/Matrix4x4f.html"><strong aria-hidden="true">9.2.</strong> Matrix4x4f</a></li><li class="chapter-item expanded "><a href="../api/types/Quaternion.html"><strong aria-hidden="true">9.3.</strong> Quaternion</a></li><li class="chapter-item expanded "><a href="../api/types/REComponent.html"><strong aria-hidden="true">9.4.</strong> REComponent</a></li><li class="chapter-item expanded "><a href="../api/types/REField.html"><strong aria-hidden="true">9.5.</strong> REField</a></li><li class="chapter-item expanded "><a href="../api/types/REManagedObject.html"><strong aria-hidden="true">9.6.</strong> REManagedObject</a></li><li class="chapter-item expanded "><a href="../api/types/REMethodDefinition.html"><strong aria-hidden="true">9.7.</strong> REMethodDefinition</a></li><li class="chapter-item expanded "><a href="../api/types/RETypeDefinition.html"><strong aria-hidden="true">9.8.</strong> RETypeDefinition</a></li><li class="chapter-item expanded "><a href="../api/types/RETransform.html"><strong aria-hidden="true">9.9.</strong> RETransform</a></li><li class="chapter-item expanded "><a href="../api/types/REResource.html"><strong aria-hidden="true">9.10.</strong> REResource</a></li><li class="chapter-item expanded "><a href="../api/types/SystemArray.html"><strong aria-hidden="true">9.11.</strong> SystemArray</a></li><li class="chapter-item expanded "><a href="../api/types/ValueType.html"><strong aria-hidden="true">9.12.</strong> ValueType</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">C# Scripting Reference</li><li class="chapter-item expanded "><a href="../api_cs/general/index.html"><strong aria-hidden="true">10.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api_cs/general/api-reference.html"><strong aria-hidden="true">10.1.</strong> API, TDB &amp; VM Reference</a></li><li class="chapter-item expanded "><a href="../api_cs/general/type-system.html"><strong aria-hidden="true">10.2.</strong> Type System (TypeDefinition, Method, Field)</a></li><li class="chapter-item expanded "><a href="../api_cs/general/attributes.html"><strong aria-hidden="true">10.3.</strong> Attributes</a></li><li class="chapter-item expanded "><a href="../api_cs/general/hooks.html"><strong aria-hidden="true">10.4.</strong> Method Hooks</a></li><li class="chapter-item expanded "><a href="../api_cs/general/typed-proxies.html"><strong aria-hidden="true">10.5.</strong> Typed Proxies</a></li><li class="chapter-item expanded "><a href="../api_cs/general/managed-objects.html"><strong aria-hidden="true">10.6.</strong> ManagedObject &amp; IObject</a></li><li class="chapter-item expanded "><a href="../api_cs/general/arrays.html"><strong aria-hidden="true">10.7.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="../api_cs/general/Notes-On-Threading.html"><strong aria-hidden="true">10.8.</strong> Notes on Threading</a></li><li class="chapter-item expanded "><a href="../api_cs/general/benchmarks.html"><strong aria-hidden="true">10.9.</strong> Benchmarks</a></li></ol></li><li class="chapter-item expanded "><a href="../api_cs/examples/additional-save-slots.html"><strong aria-hidden="true">11.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api_cs/examples/additional-save-slots.html"><strong aria-hidden="true">11.1.</strong> RE9 Additional Save Slots</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">REFramework</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/cursey/reframework-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/cursey/reframework-book/edit/master/src/examples/Example-Snippets.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="re-engine"><a class="header" href="#re-engine">RE Engine</a></h2>
+<h3 id="grabbing-components-from-a-game-object"><a class="header" href="#grabbing-components-from-a-game-object">Grabbing components from a game object</a></h3>
+<pre><code class="language-lua">-- Find a component contained in a game object by its type name
+local function get_component(game_object, type_name)
+    local t = sdk.typeof(type_name)
+
+    if t == nil then 
+        return nil
+    end
+
+    return game_object:call(&quot;getComponent(System.Type)&quot;, t)
+end
+
+-- Get all components of a game object as a table
+local function get_components(game_object)
+    local transform = game_object:call(&quot;get_Transform&quot;)
+
+    if not transform then
+        return {}
+    end
+
+    return game_object:call(&quot;get_Components&quot;):get_elements()
+end
+</code></pre>
+<h3 id="getting-the-current-elapsed-time-in-seconds"><a class="header" href="#getting-the-current-elapsed-time-in-seconds">Getting the current elapsed time in seconds</a></h3>
+<p>In newer builds, <code>os.clock</code> is available.</p>
+<pre><code class="language-lua">local app_type = sdk.find_type_definition(&quot;via.Application&quot;)
+local get_elapsed_second = app_type:get_method(&quot;get_UpTimeSecond&quot;)
+
+local function get_time()
+    return get_elapsed_second:call(nil)
+end
+</code></pre>
+<h3 id="generating-enumsstatic-fields"><a class="header" href="#generating-enumsstatic-fields">Generating enums/static fields</a></h3>
+<pre><code class="language-lua">local function generate_enum(typename)
+    local t = sdk.find_type_definition(typename)
+    if not t then return {} end
+
+    local fields = t:get_fields()
+    local enum = {}
+
+    for i, field in ipairs(fields) do
+        if field:is_static() then
+            local name = field:get_name()
+            local raw_value = field:get_data(nil)
+
+            log.info(name .. &quot; = &quot; .. tostring(raw_value))
+
+            enum[name] = raw_value
+        end
+    end
+
+    return enum
+end
+
+via.hid.GamePadButton = generate_enum(&quot;via.hid.GamePadButton&quot;)
+app.HIDInputMode = generate_enum(&quot;app.HIDInputMode&quot;)
+</code></pre>
+<h3 id="gui-debugger"><a class="header" href="#gui-debugger">GUI Debugger</a></h3>
+<pre><code class="language-lua">known_elements = {}
+
+re.on_pre_gui_draw_element(function(element, context)
+    known_elements[element:call(&quot;get_GameObject&quot;)] = os.clock()
+end)
+
+local draw_control = nil
+local draw_children = nil
+local draw_next = nil
+
+draw_control = function(control, prefix, seen)
+    prefix = prefix or &quot;&quot;
+    if control == nil then return end
+
+    seen = seen or {}
+    if seen[control] then return end
+    seen[control] = true
+
+    local name = control:call(&quot;get_Name&quot;)
+    if imgui.tree_node(prefix .. name) then
+        draw_children(control, prefix, seen)
+        object_explorer:handle_address(control)
+        imgui.tree_pop()
+    end
+
+    draw_next(control, prefix, seen)
+end
+
+draw_next = function(control, prefix, seen)
+    prefix = prefix or &quot;&quot;
+    if control == nil then return end
+
+    local ok, next = pcall(control.call, control, &quot;get_Next&quot;)
+
+    if ok then
+        draw_control(next, prefix, seen)
+    end
+
+    --draw_next(control, prefix)
+    --draw_children(control, prefix .. &quot; &quot;)
+end
+
+draw_children = function(control, prefix)
+    prefix = prefix or &quot;&quot;
+    if control == nil then return end
+
+    local child = control:call(&quot;get_Child&quot;)
+    draw_control(child, prefix .. &quot; &quot;, seen)
+end
+
+local should_draw_offsets = {
+    re4 = 0x11,
+    re2 = 0x13,
+    re7 = 0x13,
+}
+
+local should_draw_offset = should_draw_offsets[reframework:get_game_name()]
+
+if should_draw_offset == nil then
+    should_draw_offset = 0x11
+end
+
+re.on_draw_ui(function()
+    local sorted_elements = {}
+
+    for k, v in pairs(known_elements) do
+        local succeed, result = pcall(k.call, k, &quot;get_Name&quot;)
+
+        if not succeed or result == nil or k:get_reference_count() == 1 or (os.clock() - v &gt; 1) then
+            known_elements[k] = nil
+        else
+            table.insert(sorted_elements, k)
+        end
+    end
+
+    table.sort(sorted_elements, function(a, b)
+        return a:call(&quot;get_Name&quot;) &lt; b:call(&quot;get_Name&quot;)
+    end)
+
+    for i, element in ipairs(sorted_elements) do
+        imgui.push_id(tostring(element:get_address()))
+
+        local changed, value = imgui.checkbox(&quot;&quot;, element:read_byte(should_draw_offset) == 1)
+
+        if changed then
+            element:write_byte(should_draw_offset, value and 1 or 0)
+        end
+        
+
+        imgui.same_line()
+
+        local gui = element:call(&quot;getComponent(System.Type)&quot;, sdk.typeof(&quot;via.gui.GUI&quot;))
+
+        if gui ~= nil then
+            local view = gui:call(&quot;get_View&quot;)
+
+            if view ~= nil then
+                --if (imgui.button(&quot;test&quot;)) then
+                    view:call(&quot;set_ResAdjustScale(via.gui.ResolutionAdjustScale)&quot;, 2)
+                    view:call(&quot;set_ResAdjustAnchor(via.gui.ResolutionAdjustAnchor)&quot;, 4)
+                    view:call(&quot;set_ResolutionAdjust(System.Boolean)&quot;, true)
+                --end
+            end
+        end
+
+        if imgui.tree_node(element:call(&quot;get_Name&quot;) .. &quot; &quot; .. string.format(&quot;%x&quot;, element:get_address())) then
+            local transform = element:call(&quot;get_Transform&quot;)
+            local joints = transform:call(&quot;get_Joints&quot;)
+
+            if joints then
+                imgui.text(&quot;Joints: &quot; .. tostring(joints:get_size()))
+            end
+
+            if gui ~= nil then
+                local ok, world_pos_attach = pcall(element, call, &quot;getComponent(System.Type)&quot;, sdk.typeof(&quot;app.UIWorldPosAttach&quot;))
+
+                if ok and world_pos_attach ~= nil then
+                    local now_target_pos = world_pos_attach:get_field(&quot;_NowTargetPos&quot;)
+                    local screen_pos = draw.world_to_screen(now_target_pos)
+
+                    if screen_pos then
+                        local name = element:call(&quot;get_Name&quot;)
+
+                        draw.text(name, screen_pos.x, screen_pos.y, 0xFFFFFFFF)
+                    end
+                end
+
+                local view = gui:call(&quot;get_View&quot;)
+
+                if view ~= nil then
+                    draw_control(view)
+                end
+            end
+
+            object_explorer:handle_address(element)
+            imgui.tree_pop()
+        end
+
+        imgui.pop_id()
+    end
+end)
+</code></pre>
+<video width="1280" height="720" controls>
+<source src="https://user-images.githubusercontent.com/2909949/176351319-c070b216-fe71-4eb9-84f2-46c665892b11.mp4" type="video/mp4">
+</video>
+<h3 id="3d-gizmo-test-script"><a class="header" href="#3d-gizmo-test-script">3D Gizmo test script</a></h3>
+<pre><code>local gn = reframework:get_game_name()
+
+local function get_localplayer()
+    if gn == &quot;re2&quot; or gn == &quot;re3&quot; then
+        local player_manager = sdk.get_managed_singleton(sdk.game_namespace(&quot;PlayerManager&quot;))
+        if player_manager == nil then return nil end
+    
+        return player_manager:call(&quot;get_CurrentPlayer&quot;)
+    elseif gn == &quot;dmc5&quot; then
+        local player_manager = sdk.get_managed_singleton(sdk.game_namespace(&quot;PlayerManager&quot;))
+        if player_manager == nil then return nil end
+    
+        local player_comp = player_manager:call(&quot;get_manualPlayer&quot;)
+        if player_comp == nil then return nil end
+
+        return player_comp:call(&quot;get_GameObject&quot;)
+    elseif gn == &quot;mhrise&quot; then
+        local player_manager = sdk.get_managed_singleton(sdk.game_namespace(&quot;player.PlayerManager&quot;))
+        if player_manager == nil then return nil end
+    
+        local player_comp = player_manager:call(&quot;findMasterPlayer&quot;)
+        if player_comp == nil then return nil end
+
+        return player_comp:call(&quot;get_GameObject&quot;)
+    end
+
+    return nil
+end
+
+local joint_work = {}
+
+re.on_pre_application_entry(&quot;LockScene&quot;, function()
+    for k, v in pairs(joint_work) do
+        v.func(v.mat)
+    end
+
+    joint_work = {}
+end)
+
+re.on_frame(function()
+    local player = get_localplayer()
+    if player == nil then return end
+
+    local transform = player:call(&quot;get_Transform&quot;)
+    if transform == nil then return end
+
+    local mat = transform:call(&quot;get_WorldMatrix&quot;)
+    local changed = false
+
+    changed,mat = draw.gizmo(transform:get_address(), mat)
+
+    if changed then
+        transform:set_rotation(mat:to_quat())
+        transform:set_position(mat[3])
+    end
+
+    local joints = transform:call(&quot;get_Joints&quot;)
+    local mouse = imgui.get_mouse()
+
+    for i, joint in ipairs(joints:get_elements()) do
+        mat = joint:call(&quot;get_WorldMatrix&quot;)
+
+        local mat_screen = draw.world_to_screen(mat[3])
+        local mat_screen_top = draw.world_to_screen(mat[3] + Vector3f.new(0, 0.1, 0))
+
+        if mat_screen and mat_screen_top then
+            local delta = (mat_screen - mat_screen_top):length()
+            local mouse_delta = (mat_screen - mouse):length()
+            if mouse_delta &lt;= delta then
+
+                changed, mat = draw.gizmo(joint:get_address(), mat)
+
+                if changed then
+                    table.insert(joint_work, { [&quot;mat&quot;] = mat, [&quot;func&quot;] = function(mat)
+                        joint:call(&quot;set_Rotation&quot;, mat:to_quat())
+                        joint:call(&quot;set_Position&quot;, mat[3])
+                    end
+                })
+                end
+            end
+        end
+    end
+end)
+</code></pre>
+<h3 id="re2re3-material-toggler-with-keybinding-system"><a class="header" href="#re2re3-material-toggler-with-keybinding-system">RE2/RE3 material toggler with keybinding system</a></h3>
+<pre><code class="language-lua">local game_name = reframework:get_game_name()
+if game_name ~= &quot;re2&quot; and name ~= &quot;re3&quot; then
+    re.msg(&quot;This script is only for RE2 or RE3&quot;)
+    return
+end
+
+local display_children = nil
+local display_siblings = nil
+
+local waiting_for_input_map = {}
+local key_bindings = {}
+local prev_key_states = {}
+
+local function was_key_down(i)
+    local down = reframework:is_key_down(i)
+    local prev = prev_key_states[i]
+    prev_key_states[i] = down
+
+    return down and not prev
+end
+
+local function display_mesh(transform)
+    local gameobj = transform:get_GameObject()
+    if gameobj == nil then return end
+
+    imgui.set_next_item_open(true, 2)
+    imgui.push_id(gameobj:get_address())
+
+    -- Look for via.render.Mesh components within the game object.
+    -- It will have the materials we can toggle.
+    if imgui.tree_node(gameobj:get_Name()) then
+        -- Object explorer display for debugging.
+        if imgui.tree_node(&quot;Object explorer&quot;) then
+            object_explorer:handle_address(gameobj:get_address())
+            imgui.tree_pop()
+        end
+
+        local mesh = gameobj:call(&quot;getComponent(System.Type)&quot;, sdk.typeof(&quot;via.render.Mesh&quot;))
+
+        -- Now display the materials in the mesh.
+        if mesh ~= nil then
+            imgui.text(&quot;Materials: &quot; .. tostring(mesh:get_MaterialNum()))
+            for i=0, mesh:get_MaterialNum()-1 do
+                imgui.push_id(i)
+
+                local name = mesh:getMaterialName(i)
+                local enabled = mesh:getMaterialsEnable(i)
+
+                local bound_key = key_bindings[name]
+                local is_key_down = bound_key ~= nil and was_key_down(bound_key)
+
+                if imgui.checkbox(name, enabled) or is_key_down then
+                    mesh:setMaterialsEnable(i, not enabled)
+                end
+
+                imgui.same_line()
+                if not waiting_for_input_map[name] then
+                    if imgui.button(&quot;bind key&quot;) then
+                        waiting_for_input_map[name] = true
+                    end
+
+                    if key_bindings[name] ~= nil then
+                        imgui.same_line()
+                        if imgui.button(&quot;clear&quot;) then
+                            key_bindings[name] = nil
+                        end
+
+                        imgui.same_line()
+                        imgui.text_colored(&quot;key: &quot; .. tostring(key_bindings[name]), 0xFF00FF00)
+                    end
+                else
+                    imgui.text_colored(&quot;Press a key to bind&quot;, 0xFF00FFFF)
+
+                    local key = reframework:get_first_key_down()
+                    if key ~= nil then
+                        key_bindings[name] = key
+                        waiting_for_input_map[name] = false
+                    end
+                end
+
+                imgui.pop_id()
+            end
+        else
+            imgui.text(&quot;No via.render.Mesh component found&quot;)
+        end
+
+        imgui.tree_pop()
+    end
+
+    imgui.pop_id()
+end
+
+display_children = function(transform)
+    local child = transform:get_Child()
+
+    if child ~= nil then
+        display_mesh(child)
+        display_children(child)
+        display_siblings(child)
+    end
+end
+
+display_siblings = function(transform)
+    local next = transform:get_Next()
+
+    if next ~= nil then
+        display_mesh(next)
+        display_children(next)
+        display_siblings(next)
+    end
+end
+
+re.on_draw_ui(function()
+    -- Obtain the FigureManager singleton.
+    local figure_manager = sdk.get_managed_singleton(sdk.game_namespace(&quot;FigureManager&quot;))
+
+    if figure_manager == nil then
+        imgui.text(&quot;FigureManager not found&quot;)
+        return
+    end
+
+    if imgui.tree_node(&quot;Material toggler&quot;) then
+        -- Get the current figure/model being displayed.
+        local figure = figure_manager:get_CurrentFigureObj()
+
+        if figure ~= nil then
+            local figure_name = figure:get_Name()
+            imgui.text(&quot;Current figure: &quot; .. figure_name)
+
+            local transform = figure:get_Transform()
+
+            -- Go through all of the children transforms and look for mesh components.
+            -- The mesh components will have the materials we can toggle.
+            display_children(transform)
+        else
+            imgui.text(&quot;No figure found&quot;)
+        end
+
+        imgui.tree_pop()
+    end
+end)
+</code></pre>
+<h3 id="dumping-fields-of-an-remanagedobject-or-type-very-verbose"><a class="header" href="#dumping-fields-of-an-remanagedobject-or-type-very-verbose">Dumping fields of an REManagedObject or type (very verbose)</a></h3>
+<p>Use <code>object:get_type_definition():get_fields()</code> for an easier way to do this. The below snippet should rarely be used.</p>
+<pre><code class="language-lua">-- type is the &quot;typeof&quot; variant, not the type definition
+local function dump_fields_by_type(type)
+    log.info(&quot;Dumping fields...&quot;)
+
+    local binding_flags = 32 | 16 | 4 | 8
+    local fields = type:call(&quot;GetFields(System.Reflection.BindingFlags)&quot;, binding_flags)
+
+    if fields then
+        fields = fields:get_elements()
+
+        for i, field in ipairs(fields) do
+            log.info(&quot;Field: &quot; .. field:call(&quot;ToString&quot;))
+        end
+    end
+end
+
+local function dump_fields(object)
+    local object_type = object:call(&quot;GetType&quot;)
+
+    dump_fields_by_type(object_type)
+end
+</code></pre>
+<h2 id="monster-hunter-rise"><a class="header" href="#monster-hunter-rise">Monster Hunter Rise</a></h2>
+<h3 id="getting-the-local-player"><a class="header" href="#getting-the-local-player">Getting the local player</a></h3>
+<pre><code class="language-lua">local function get_localplayer()
+    local playman = sdk.get_managed_singleton(&quot;snow.player.PlayerManager&quot;)
+
+    if not playman then 
+         return 
+    end
+
+    return playman:call(&quot;findMasterPlayer&quot;)
+end
+</code></pre>
+<h2 id="devil-may-cry-5"><a class="header" href="#devil-may-cry-5">Devil May Cry 5</a></h2>
+<h3 id="getting-the-local-player-1"><a class="header" href="#getting-the-local-player-1">Getting the local player</a></h3>
+<pre><code class="language-lua">local function get_localplayer()
+    local playman = sdk.get_managed_singleton(sdk.game_namespace(&quot;PlayerManager&quot;))
+
+    if not playman then
+        return nil
+    end
+
+    return playman:call(&quot;get_manualPlayer&quot;)
+end
+</code></pre>
+<h2 id="resident-evil-23"><a class="header" href="#resident-evil-23">Resident Evil 2/3</a></h2>
+<h3 id="getting-the-local-player-2"><a class="header" href="#getting-the-local-player-2">Getting the local player</a></h3>
+<pre><code class="language-lua">local function get_localplayer()
+    local playman = sdk.get_managed_singleton(sdk.game_namespace(&quot;PlayerManager&quot;))
+
+    if not playman then
+        return nil
+    end
+
+    return playman:call(&quot;get_CurrentPlayer&quot;)
+end
+</code></pre>
+<h2 id="resident-evil-8"><a class="header" href="#resident-evil-8">Resident Evil 8</a></h2>
+<h3 id="getting-the-local-player-3"><a class="header" href="#getting-the-local-player-3">Getting the local player</a></h3>
+<pre><code class="language-lua">local function get_localplayer()
+    if not propsman then
+        propsman = sdk.get_managed_singleton(sdk.game_namespace(&quot;PropsManager&quot;))
+    end
+
+    return propsman:call(&quot;get_Player&quot;)
+end
+</code></pre>
+<h2 id="general"><a class="header" href="#general">General</a></h2>
+<h3 id="spinner-and-progress-bar-in-imgui"><a class="header" href="#spinner-and-progress-bar-in-imgui">Spinner and progress bar in ImGui</a></h3>
+<pre><code class="language-lua">local progress = 0.0
+
+re.on_frame(function()
+    progress = progress + 0.001
+    if progress &gt; 1.0 then 
+        progress = 0.0
+    end
+end)
+
+local function lerp(x0, x1, t)
+    return (1.0 - t) * x0 + t * x1
+end
+
+local function interval(t0, t1, tween_func)
+    return function(t)
+        --return t &lt; t0 and 0.0 or t &gt; t1 and 1.0 or tween_func((t - t0) / (t1 - t0))
+        if t &lt; t0 then
+            return 0.0
+        elseif t &gt; t1 then
+            return 1.0
+        end
+        
+        return tween_func((t - t0) / (t1 - t0))
+    end
+end
+
+local function sawtooth(x, t)
+    return math.fmod(x * t, 1.0)
+end
+
+local function cubic_bezier(t, p0, p1, p2, p3)
+    local u = 1.0 - t
+    return p0 * u*u*u + p1 * 3.0 * u*u*t + p2 * 3.0 * u*t*t + p3 * t*t*t
+end
+
+local function stroke_head_tween(d, t)
+    t = sawtooth(d, t)
+    return interval(0.0, 0.5, function(x) return cubic_bezier(x, 0.2, 0.0, 0.4, 1.0) end)(t)
+end
+
+local function stroke_tail_tween(d, t)
+    t = sawtooth(d, t)
+    return interval(0.5, 1.0, function(x) return cubic_bezier(x, 0.2, 0.0, 0.4, 1.0) end)(t)
+end
+
+local function step_tween(x, t)
+    return math.floor(lerp(0.0, x, t))
+end
+
+-- https://github.com/ocornut/imgui/issues/1901
+local function draw_spinner(center, radius, color, thickness)
+    local rect = {
+        imgui.get_cursor_pos(),
+        imgui.get_cursor_pos() + Vector2f.new(radius * 2, radius * 2) -- todo: frame padding
+    }
+
+    imgui.item_size(rect[1], rect[2])
+    if not imgui.item_add(rect[1], rect[2], &quot;circle&quot;) then
+        --print(&quot;oh no&quot;)
+        --return
+    end
+
+    local period = 5.0
+    local t = math.fmod(os.clock(), period) / period
+
+    imgui.draw_list_path_clear()
+
+    local num_segments = 24
+
+    local num_detents = 5
+    local skip_detents = 3
+
+    local head_value = stroke_head_tween(num_detents, t);
+    local tail_value = stroke_tail_tween(num_detents, t);
+    local step_value = step_tween(num_detents, t);
+    local rotation_value = sawtooth(num_detents, t);
+
+    local min_arc =  30.0 / 360.0 * 2.0 * math.pi
+    local max_arc = 270.0 / 360.0 * 2.0 * math.pi
+    local step_offset = skip_detents * 2.0 * math.pi / num_detents
+    local rotation_compensation = math.fmod(4.0*math.pi - step_offset - max_arc, 2.0 * math.pi);
+
+    local start_angle = -math.pi * 2.0
+    local a_min = start_angle + tail_value * max_arc + rotation_value * rotation_compensation - step_value * step_offset;
+    local a_max = a_min + (head_value - tail_value) * max_arc + min_arc;
+
+    for i = 0, num_segments - 1 do
+        local a = a_min + (i / num_segments) * (a_max - a_min)
+        local x = center.x + math.cos(a) * radius
+        local y = center.y + math.sin(a) * radius
+        imgui.draw_list_path_line_to(Vector2f.new(x, y))
+    end
+
+    imgui.draw_list_path_stroke(color, false, thickness)
+end
+
+re.on_draw_ui(function()
+    local center = imgui.get_cursor_pos() + imgui.get_window_pos()
+    local radius = 10
+    local color = 0x5050BFFF
+    local thickness = 2
+
+    draw_spinner(Vector2f.new(center.x + radius, center.y + radius), radius, color, thickness)
+
+    imgui.same_line()
+    imgui.progress_bar(progress, Vector2f.new(200, 20), string.format(&quot;Progress: %.1f%%&quot;, progress * 100))
+end)
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../examples/Example-Scripts.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../object_explorer/object_explorer.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../examples/Example-Scripts.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../object_explorer/object_explorer.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

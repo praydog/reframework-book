@@ -1,0 +1,360 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>VR Troubleshooting - REFramework</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Troubleshooting</li><li class="chapter-item expanded "><a href="../troubleshooting/VR-Troubleshooting.html" class="active"><strong aria-hidden="true">1.</strong> VR Troubleshooting</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="../examples/Example-Scripts.html"><strong aria-hidden="true">2.</strong> Example Scripts</a></li><li class="chapter-item expanded "><a href="../examples/Example-Snippets.html"><strong aria-hidden="true">3.</strong> Example Snippets</a></li><li class="chapter-item expanded affix "><li class="part-title">Tools</li><li class="chapter-item expanded "><a href="../object_explorer/object_explorer.html"><strong aria-hidden="true">4.</strong> Object Explorer</a></li><li class="chapter-item expanded "><a href="../chain_viewer/chain_viewer.html"><strong aria-hidden="true">5.</strong> Chain Viewer</a></li><li class="chapter-item expanded "><a href="../bhvt_editor/bhvt_editor.html"><strong aria-hidden="true">6.</strong> Behavior Tree/FSM Editor</a></li><li class="chapter-item expanded affix "><li class="part-title">Lua Scripting Reference</li><li class="chapter-item expanded "><a href="../api/general/index.html"><strong aria-hidden="true">7.</strong> General</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/general/Notes-on-Return-Types.html"><strong aria-hidden="true">7.1.</strong> Notes on Return Types</a></li><li class="chapter-item expanded "><a href="../api/general/Notes-on-Method-Arguments.html"><strong aria-hidden="true">7.2.</strong> Notes on Method Arguments</a></li><li class="chapter-item expanded "><a href="../api/general/best-practices.html"><strong aria-hidden="true">7.3.</strong> Best Practices</a></li></ol></li><li class="chapter-item expanded "><a href="../api/index.html"><strong aria-hidden="true">8.</strong> APIs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/draw.html"><strong aria-hidden="true">8.1.</strong> draw</a></li><li class="chapter-item expanded "><a href="../api/fs.html"><strong aria-hidden="true">8.2.</strong> fs</a></li><li class="chapter-item expanded "><a href="../api/imgui.html"><strong aria-hidden="true">8.3.</strong> imgui</a></li><li class="chapter-item expanded "><a href="../api/imnodes.html"><strong aria-hidden="true">8.4.</strong> imnodes</a></li><li class="chapter-item expanded "><a href="../api/imguizmo.html"><strong aria-hidden="true">8.5.</strong> imguizmo</a></li><li class="chapter-item expanded "><a href="../api/json.html"><strong aria-hidden="true">8.6.</strong> json</a></li><li class="chapter-item expanded "><a href="../api/log.html"><strong aria-hidden="true">8.7.</strong> log</a></li><li class="chapter-item expanded "><a href="../api/re.html"><strong aria-hidden="true">8.8.</strong> re (Callbacks)</a></li><li class="chapter-item expanded "><a href="../api/reframework.html"><strong aria-hidden="true">8.9.</strong> reframework</a></li><li class="chapter-item expanded "><a href="../api/sdk.html"><strong aria-hidden="true">8.10.</strong> sdk</a></li><li class="chapter-item expanded "><a href="../api/vrmod.html"><strong aria-hidden="true">8.11.</strong> vrmod</a></li><li class="chapter-item expanded "><a href="../api/object_explorer.html"><strong aria-hidden="true">8.12.</strong> object_explorer</a></li><li class="chapter-item expanded "><a href="../api/thread.html"><strong aria-hidden="true">8.13.</strong> thread</a></li></ol></li><li class="chapter-item expanded "><a href="../api/types/index.html"><strong aria-hidden="true">9.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/types/VectorXf.html"><strong aria-hidden="true">9.1.</strong> VectorXf</a></li><li class="chapter-item expanded "><a href="../api/types/Matrix4x4f.html"><strong aria-hidden="true">9.2.</strong> Matrix4x4f</a></li><li class="chapter-item expanded "><a href="../api/types/Quaternion.html"><strong aria-hidden="true">9.3.</strong> Quaternion</a></li><li class="chapter-item expanded "><a href="../api/types/REComponent.html"><strong aria-hidden="true">9.4.</strong> REComponent</a></li><li class="chapter-item expanded "><a href="../api/types/REField.html"><strong aria-hidden="true">9.5.</strong> REField</a></li><li class="chapter-item expanded "><a href="../api/types/REManagedObject.html"><strong aria-hidden="true">9.6.</strong> REManagedObject</a></li><li class="chapter-item expanded "><a href="../api/types/REMethodDefinition.html"><strong aria-hidden="true">9.7.</strong> REMethodDefinition</a></li><li class="chapter-item expanded "><a href="../api/types/RETypeDefinition.html"><strong aria-hidden="true">9.8.</strong> RETypeDefinition</a></li><li class="chapter-item expanded "><a href="../api/types/RETransform.html"><strong aria-hidden="true">9.9.</strong> RETransform</a></li><li class="chapter-item expanded "><a href="../api/types/REResource.html"><strong aria-hidden="true">9.10.</strong> REResource</a></li><li class="chapter-item expanded "><a href="../api/types/SystemArray.html"><strong aria-hidden="true">9.11.</strong> SystemArray</a></li><li class="chapter-item expanded "><a href="../api/types/ValueType.html"><strong aria-hidden="true">9.12.</strong> ValueType</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">C# Scripting Reference</li><li class="chapter-item expanded "><a href="../api_cs/general/index.html"><strong aria-hidden="true">10.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api_cs/general/api-reference.html"><strong aria-hidden="true">10.1.</strong> API, TDB &amp; VM Reference</a></li><li class="chapter-item expanded "><a href="../api_cs/general/type-system.html"><strong aria-hidden="true">10.2.</strong> Type System (TypeDefinition, Method, Field)</a></li><li class="chapter-item expanded "><a href="../api_cs/general/attributes.html"><strong aria-hidden="true">10.3.</strong> Attributes</a></li><li class="chapter-item expanded "><a href="../api_cs/general/hooks.html"><strong aria-hidden="true">10.4.</strong> Method Hooks</a></li><li class="chapter-item expanded "><a href="../api_cs/general/typed-proxies.html"><strong aria-hidden="true">10.5.</strong> Typed Proxies</a></li><li class="chapter-item expanded "><a href="../api_cs/general/managed-objects.html"><strong aria-hidden="true">10.6.</strong> ManagedObject &amp; IObject</a></li><li class="chapter-item expanded "><a href="../api_cs/general/arrays.html"><strong aria-hidden="true">10.7.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="../api_cs/general/Notes-On-Threading.html"><strong aria-hidden="true">10.8.</strong> Notes on Threading</a></li><li class="chapter-item expanded "><a href="../api_cs/general/benchmarks.html"><strong aria-hidden="true">10.9.</strong> Benchmarks</a></li></ol></li><li class="chapter-item expanded "><a href="../api_cs/examples/additional-save-slots.html"><strong aria-hidden="true">11.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api_cs/examples/additional-save-slots.html"><strong aria-hidden="true">11.1.</strong> RE9 Additional Save Slots</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">REFramework</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/cursey/reframework-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/cursey/reframework-book/edit/master/src/troubleshooting/VR-Troubleshooting.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>Here you'll find various solutions and FAQ to various problems you may encounter with the VR mod.</p>
+<p><a href="https://beastsaber.notion.site/beastsaber/Praydog-s-Resident-Evil-2-3-VR-mod-3db8bd110ebf4a38870e1a5114b16998">Getting Started Guide</a></p>
+<p>Newer builds can be found <a href="https://github.com/praydog/REFramework-nightly/releases/">here</a> (master branch only)</p>
+<p>The old pre-RT beta builds of RE2/RE3/RE7 may be more stable with the mod on some computers. You can switch to the beta in Steam under the game's properties. Once this is done, the old version of the mod will need to be downloaded, these are the zip files in the release with &quot;TDB&quot; in them.</p>
+<h2 id="builds-with-better-performance-and-fixed-taa"><a class="header" href="#builds-with-better-performance-and-fixed-taa">Builds with better performance and fixed TAA</a></h2>
+<p>(This only applies to RT builds of RE2/3/7, RE8 and newer games)</p>
+<p>In REFramework's <strong>pd-upscaler builds</strong>, TAA is completely fixed, and performance is greatly improved with a new renderer. Optionally, DLSS, FSR2, XeSS can be used.</p>
+<p>This will eventually make its way into the stable builds, but you can find the <strong>pd-upscaler</strong> builds here, with a GitHub account: <a href="https://github.com/praydog/REFramework/actions">https://github.com/praydog/REFramework/actions</a></p>
+<p><img src="https://github.com/user-attachments/assets/f981abb3-a5d4-4e64-86fd-c97e89b8dec6" alt="upscalerbuilds" /></p>
+<h2 id="reporting-a-bug"><a class="header" href="#reporting-a-bug">Reporting a bug</a></h2>
+<p>Report it on the <a href="https://github.com/praydog/REFramework/issues">Issues</a> page.</p>
+<p>If you are crashing, or are having a technical problem then upload these files from your game folder:</p>
+<ul>
+<li><code>re2_framework_log.txt</code></li>
+<li><code>reframework_crash.dmp</code> if you are crashing</li>
+</ul>
+<p>If you do not have an <code>reframework_crash.dmp</code> and are crashing, download a newer build, links at the top of the page.</p>
+<h2 id="trying-newerbeta-builds-pd-upscaler"><a class="header" href="#trying-newerbeta-builds-pd-upscaler">Trying newer/beta builds (pd-upscaler)</a></h2>
+<p>GitHub account required: <a href="https://github.com/praydog/REFramework/actions/">https://github.com/praydog/REFramework/actions/</a></p>
+<h2 id="opening-the-in-game-menu-with-motion-controllers-openvr-only-right-now"><a class="header" href="#opening-the-in-game-menu-with-motion-controllers-openvr-only-right-now">Opening the in-game menu with motion controllers (OpenVR only right now)</a></h2>
+<p>Aim at the palm of your left hand with your head and your right hand. Do not press anything, and an overlay menu should show up.</p>
+<p>If that doesn't work, you can use the desktop version of the menu using the Insert key. This method won't work in the headset.</p>
+<p>If that still doesn't work, options can be changed in the <code>re2_fw_config.txt</code> in your game directory.</p>
+<h2 id="for-those-with-motion-sickness"><a class="header" href="#for-those-with-motion-sickness">For those with motion sickness</a></h2>
+<p>Enable &quot;Decoupled Camera Pitch&quot; under &quot;VR&quot; in the REFramework menu. This will stop the camera from moving vertically in any way. Do note that while this may not necessarily break anything, it may make it less clear of what to do in certain parts of the game when the camera is supposed to shift vertically, or what the camera is intending to look at in a cutscene.</p>
+<h2 id="common-fixes"><a class="header" href="#common-fixes">Common fixes</a></h2>
+<ul>
+<li>Restarting SteamVR</li>
+<li>Disabling overlay software</li>
+<li>Disabling SteamVR theater</li>
+<li>Disabling &quot;Hardware-accelerated GPU scheduling&quot;
+<ul>
+<li>This <strong>MUST</strong> be disabled if you are getting extremely low frames</li>
+</ul>
+</li>
+<li>Swapping between DX11 and DX12</li>
+<li>Taking the headset off and putting it back on</li>
+<li>If your game appears &quot;rainbow&quot; colored, or you are stuck in the SteamVR void
+<ul>
+<li>You have an HDR monitor and HDR must be disabled in some way</li>
+<li>Unplugging the monitor temporarily has been a reported fix</li>
+<li>Also setting the game to windowed mode can fix this, HDR sometimes gets forced on in fullscreen</li>
+</ul>
+</li>
+<li>If your screen looks squished with black bars turn off Borderless window mode</li>
+<li>Make sure no graphical settings are being forced globally (e.g. from Nvidia Control Panel)
+<ul>
+<li>The exception to this is disabling HDR which is required or else the game will not display within the headset</li>
+</ul>
+</li>
+</ul>
+<h3 id="in-re2"><a class="header" href="#in-re2">In RE2</a></h3>
+<p>There is a known issue of a softlock sometimes occurring in the Birkin fight if it goes on too long. It can be fixed simply by disabling FirstPerson until he spawns again.</p>
+<h2 id="switching-to-openxr"><a class="header" href="#switching-to-openxr">Switching to OpenXR</a></h2>
+<p>By default, REFramework uses OpenVR for the VR functionality. In some cases, switching to OpenXR can increase performance anywhere from slightly, to a significant amount. The most significant gains have been observed to come when running the games in DX12, but your mileage may vary.</p>
+<p>To switch to OpenXR, simply delete the <code>openvr_api.dll</code> that came with the zip file. Make sure the <code>openxr_loader.dll</code> that came with the mod is present in the game folder.</p>
+<p>Not all headsets may have an OpenXR runtime. Headsets like the Index which run natively through SteamVR may not see a performance increase.</p>
+<p>If you are using an Oculus headset or a headset that has its own dedicated OpenXR runtime, it is recommended to switch to the runtime provided by your headset manufacturer, e.g. the Oculus OpenXR runtime for Oculus headsets. Using SteamVR as the runtime is only recommended if your headset does not have a dedicated runtime, or are using something like Virtual Desktop.</p>
+<h2 id="openxr-pitfalls"><a class="header" href="#openxr-pitfalls">OpenXR Pitfalls</a></h2>
+<ul>
+<li>There is no wrist overlay for modifying VR settings yet</li>
+<li>Modifying controller bindings is not as expressive as OpenVR</li>
+<li>Personally only tested on Oculus Quest 2 and CV1, reports that it works on Reverb G2</li>
+</ul>
+<h2 id="what-about-the-others-like-dmc5-and-mhrise"><a class="header" href="#what-about-the-others-like-dmc5-and-mhrise">What about the others like DMC5 and MHRise?</a></h2>
+<p>They are both fully 6DOF but with the least support.</p>
+<p><del>They have the same issue of audio positioning being incorrect</del> <strong>only in MHRise now</strong>.</p>
+<p><del>DMC5 has some issues with some incorrect UI elements.</del> Fixed in a recent update.</p>
+<h2 id="gameplay"><a class="header" href="#gameplay">Gameplay</a></h2>
+<h3 id="all-games"><a class="header" href="#all-games">All games</a></h3>
+<h4 id="switching-weapons"><a class="header" href="#switching-weapons">Switching Weapons</a></h4>
+<p>On supported controllers, bound to left trigger + joystick by default. Otherwise, &quot;weapondial&quot; will need to be bound to something, or the d-pad bindings will need to be bound.</p>
+<h3 id="re2-and-re3"><a class="header" href="#re2-and-re3">RE2 and RE3</a></h3>
+<h3 id="general"><a class="header" href="#general">General</a></h3>
+<ul>
+<li>Motion controller support</li>
+<li>Head-based movement</li>
+<li>Smooth locomotion</li>
+<li>Smooth turning</li>
+<li>Mostly right-handed</li>
+</ul>
+<p>Playing with a gamepad is supported. IK gets disabled when using one.</p>
+<h3 id="gestures"><a class="header" href="#gestures">Gestures</a></h3>
+<h4 id="opening-the-map"><a class="header" href="#opening-the-map">Opening the map</a></h4>
+<p>Can be done by pressing the inventory button while holding your controller behind your head/over your shoulder.</p>
+<h3 id="additional-options"><a class="header" href="#additional-options">Additional options</a></h3>
+<h4 id="disabling-the-crosshair"><a class="header" href="#disabling-the-crosshair">Disabling the crosshair</a></h4>
+<p>The option to disable it is under &quot;Script Generated UI&quot; in the REFramework menu. The corresponding script can also be removed from the <code>reframework/autorun</code> folder.</p>
+<hr />
+<h3 id="re7-and-re8"><a class="header" href="#re7-and-re8">RE7 and RE8</a></h3>
+<h4 id="general-1"><a class="header" href="#general-1">General</a></h4>
+<ul>
+<li>Motion controller support</li>
+<li>Head-based movement</li>
+<li>Smooth locomotion</li>
+<li>Smooth turning</li>
+<li>Mostly right-handed</li>
+</ul>
+<p>Playing with a gamepad is supported.</p>
+<h3 id="controls-not-working"><a class="header" href="#controls-not-working">Controls not working?</a></h3>
+<ol>
+<li>Unplug or disconnect your gamepad. The gamepad conflicts with the VR controls.</li>
+<li>Not all controllers may have proper default bindings, and will need to be manually bound</li>
+</ol>
+<h3 id="body-is-annoying-or-getting-in-the-way"><a class="header" href="#body-is-annoying-or-getting-in-the-way">Body is annoying or getting in the way?</a></h3>
+<p>Body parts can be selectively disabled under &quot;RE8VR&quot; in the REFramework menu</p>
+<h3 id="want-to-play-without-facegun-or-motion-controls-or-any-additional-features-only-vr"><a class="header" href="#want-to-play-without-facegun-or-motion-controls-or-any-additional-features-only-vr">Want to play without facegun or motion controls, or any additional features, only VR?</a></h3>
+<p>Just delete <code>re8_vr.lua</code> from the <code>reframework</code> directory.</p>
+<h3 id="broken-graphical-settings"><a class="header" href="#broken-graphical-settings">Broken graphical settings</a></h3>
+<p>(RE7) Ambient occlusion must be set to SSAO or Off. The max setting is broken/buggy.</p>
+<h3 id="gestures-1"><a class="header" href="#gestures-1">Gestures</a></h3>
+<h4 id="opening-the-map-1"><a class="header" href="#opening-the-map-1">Opening the map</a></h4>
+<p>Can be done by pressing the inventory button while holding your controller behind your head/over your shoulder.</p>
+<h4 id="blocking"><a class="header" href="#blocking">Blocking</a></h4>
+<p>Hold your hands in front of your face.</p>
+<h4 id="healing"><a class="header" href="#healing">Healing</a></h4>
+<p>Reach behind your head with your right hand, hold down the grip, and a medicine bottle will appear in your hand. Press right trigger to initiate a heal.</p>
+<p>A softlock can occur in the first fight with Mia if you pull out the bottle.</p>
+<h3 id="additional-options-1"><a class="header" href="#additional-options-1">Additional options</a></h3>
+<h4 id="disabling-the-crosshair-1"><a class="header" href="#disabling-the-crosshair-1">Disabling the crosshair</a></h4>
+<p>The option to disable it is under &quot;Script Generated UI&quot; in the REFramework menu.</p>
+<h2 id="bindings"><a class="header" href="#bindings">Bindings</a></h2>
+<p>Bindings can be changed in SteamVR's controller bindings section.</p>
+<p>Known working default bindings:</p>
+<ul>
+<li>Oculus Touch</li>
+<li>Valve Index Knuckles</li>
+</ul>
+<p>Needs additional testing:</p>
+<ul>
+<li>Vive Wands</li>
+</ul>
+<p>If a set of controllers don't work as expected, they can be set up in the SteamVR controller bindings.</p>
+<p>In OpenXR, the bindings can be changed under &quot;VR&quot;.</p>
+<h2 id="performance"><a class="header" href="#performance">Performance</a></h2>
+<p>One of the most taxing parts of these mods is the <strong>resolution</strong> you have set. The in-game resolution has no effect, it must be changed in SteamVR.</p>
+<p>To modify the resolution in your headset:</p>
+<ul>
+<li>Open the SteamVR overlay</li>
+<li>Click on the cogwheel on the bottom right</li>
+<li>Click on &quot;Video&quot;</li>
+<li>Change &quot;Render Resolution&quot; to &quot;Custom&quot; and then lower the resolution until it is playable</li>
+</ul>
+<p>You can also use <a href="https://github.com/fholger/openvr_fsr">openvr_fsr</a> with this mod.</p>
+<p>There are other demanding in-game quality settings (ranked by approximate performance impact):</p>
+<ul>
+<li>Ray Tracing (RE8 only at the moment, will need a very powerful GPU to run this at a good framerate)</li>
+<li>Image Quality (set this to 100% if you're not sure, lower it if it improves performance)</li>
+<li>Shadow Quality</li>
+<li>Screen Space Reflections</li>
+<li>Ambient Occlusion</li>
+<li>Subsurface Scattering</li>
+</ul>
+<p>Some other ones:</p>
+<ul>
+<li>Mesh Quality</li>
+</ul>
+<p>You may want to start on all low or use the &quot;Performance Priority&quot; preset and work your way up to acceptable settings.</p>
+<p>The Lua scripts can have a minor impact on performance. If you don't mind playing without physical knifing and physical grenade throwing, you can remove their respective scripts from the <code>autorun</code> folder in your game directory.</p>
+<p>Enabling AFR/AER can be done under the &quot;VR&quot; section of the menu.</p>
+<h2 id="what-graphical-settings-are-broken"><a class="header" href="#what-graphical-settings-are-broken">What graphical settings are broken?</a></h2>
+<p>Volumetric Lighting, Lens Flares, TAA, and Motion Blur. Will need the help of someone more experienced with shaders to fix these.</p>
+<p>TAA has a partial fix in the latest nightly builds.</p>
+<p><strong>Important Note</strong> (This only applies to RT builds of RE2/3/7, RE8 and newer games): TAA is completely fixed in the <strong>pd-upscaler</strong> builds of REFramework, and performance is greatly improved with a new renderer.</p>
+<p>This will eventually make its way into the stable builds, but you can find the <strong>pd-upscaler</strong> builds here, with a GitHub account: <a href="https://github.com/praydog/REFramework/actions">https://github.com/praydog/REFramework/actions</a></p>
+<p><img src="https://github.com/user-attachments/assets/f981abb3-a5d4-4e64-86fd-c97e89b8dec6" alt="upscalerbuilds" /></p>
+<h2 id="what-graphical-settings-are-forced"><a class="header" href="#what-graphical-settings-are-forced">What graphical settings are forced?</a></h2>
+<p>These are forced, but the forcing can be toggled off in REFramework's menu, under VR.</p>
+<ul>
+<li>FPS, gets forced to &quot;Variable&quot; (uncapped)</li>
+<li>Antialiasing, gets forced to &quot;None&quot; if using any TAA variant</li>
+<li>Motion Blur, gets forced to &quot;Off&quot;</li>
+<li>VSync, gets forced to &quot;Off&quot;</li>
+<li>Lens Distortion, gets forced to &quot;Off&quot;</li>
+<li>Lens Flares, gets forced to &quot;Off&quot;</li>
+<li>Volumetric Lighting, gets forced to &quot;Off&quot;</li>
+</ul>
+<p>These forced changes are not visual in the options menu, but will take effect.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../examples/Example-Scripts.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../examples/Example-Scripts.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
