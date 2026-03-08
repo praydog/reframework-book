@@ -6,6 +6,6 @@ src = "src"
 title = "REFramework"
 
 [output.html]
-site-url = "/"
+site-url = "/reframework-book/"
 git-repository-url = "https://github.com/praydog/reframework-book"
 edit-url-template = "https://github.com/praydog/reframework-book/edit/master/{path}"
