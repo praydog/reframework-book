@@ -2,7 +2,7 @@ This is the REFramework wiki. It will mostly serve as documentation for the scri
 
 [VR Troubleshooting](troubleshooting/VR-Troubleshooting.md)
 
-[Contributing to documentation](https://github.com/cursey/reframework-book)
+[Contributing to documentation](https://github.com/praydog/reframework-book)
 
 [Nightly builds](https://github.com/praydog/REFramework-nightly/releases)
 
@@ -193,7 +193,7 @@ For example:
 [alphaZomega](https://github.com/alphazolam) for testing/writing scripts/finding bugs/helpful suggestions.
 
 ## Discords
-[Modding Haven](https://discord.gg/9Vr2SJ3) (General RE Engine modding)
+[Haven's Night](https://discord.gg/9Vr2SJ3) (General RE Engine modding)
 
 [Infernal Warks](https://discord.com/invite/nX5EzVU) (DMC5 modding)
 
